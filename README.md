@@ -1,4 +1,20 @@
+# Gato
+
+Se incluyen diferentes implementaciones para jugar gato contra un computador inteligente. El computador o NPC (_non personal character_) realiza en cada jugada una elección en base a algún algoritmo, mientras que el jugador corresponde a la persona ejecutando el juego, por lo que puede jugar como desee.
+
+Se desarrolla una interfaz común en este [archivo](tictactoe.py), la cual es extensible para recibir un algoritmo o política de decisión para el NPC.
+
+Para jugar basta con ejecutar en consola la implementación deseada:
+
+```bash
+python3 <script>
+```
+
+Donde `<script>` corresponde a uno de: `minimax.py`, `minimax_alpha_beta.py` o `minimax_alpha_beta_on_build.py`, especificados en la siguiente sección.
+
 # Implementaciones
+
+## MiniMax
 
 La primera es [minimax](minimax.py). La idea es jugar gato contra un computador que realiza una busqueda MiniMax en cada turno suyo.
 
@@ -11,12 +27,12 @@ El algoritmo MiniMax tiene los siguientes pasos:
 
 La intuición es que el algoritmo decide optimizar sus elecciones (máx) asumiendo el peor escenario posible por parte de su oponente (mín).
 
-## Alfa-Beta
+## MiniMax + Alfa-Beta
 La segunda es [minimax con poda alfa-beta](minimax_alpha_beta.py) que realiza lo mismo pero en el tercer paso evita realizar búsquedas sobre ramas en las que sabe que no modifican el máximo o mínimo, manteniendo referencias a valores alfa y beta para ese objetivo.
 
 Con esta poda se realizan aproximadamente un 3.3% de los cálculos que se realizan sin ella en el peor caso. En términos de rendimiento, la evaluación (paso 3) se reduce drásticamente, realizándose en un 10% del tiempo original. Sin embargo, el tiempo de construcción del árbol (paso 1) se mantiene constante.
 
-### Alfa-Beta Optimizado
+## MiniMax + Alfa-Beta Optimizado
 La tercera implementación es [minimax con poda alfa-beta en tiempo de construcción](minimax_alpha_beta_on_build.py) la cual realiza la construcción del árbol y el cálculo de los valores en la misma pasada, y realizando la poda, realiza los 3 pasos en 1. Con esto, no construye el árbol entero, sino que construye solo aquello que le es útil.
 
 
