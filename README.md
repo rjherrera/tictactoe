@@ -12,6 +12,18 @@ python3 <script>
 
 Donde `<script>` corresponde a uno de: `minimax.py`, `minimax_alpha_beta.py` o `minimax_alpha_beta_on_build.py`, especificados en la siguiente sección.
 
+## Interfaz
+
+Se incluye una interfaz mínima en `tictactoe_gui.py` para que probar sea más amigable. En cualquiera de los archivos anteriores, importar y utilizar la interfaz así:
+
+```python
+from tictactoe_gui import TicTacToeGui
+...
+g = TicTacToeGui(MiniMaxTree)
+```
+
+Reemplazando donde sea necesario.
+
 # Implementaciones
 
 ## MiniMax
