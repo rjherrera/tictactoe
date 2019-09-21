@@ -1,0 +1,9 @@
+# macOS and OSX specific files
+.DS_Store
+._.DS_Store
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
